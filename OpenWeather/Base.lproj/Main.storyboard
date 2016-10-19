@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P97-Qu-Kv1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OpenWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="k4u-Na-qQu"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zx7-FH-AnA" customClass="WeatherInfoView" customModule="OpenWeather">
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWo-7F-Stf">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="6c9-1d-H8r"/>
+                                            <constraint firstAttribute="height" constant="128" id="dDJ-Lk-Ov8"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="vY1-Hc-TGn" userLabel="City Name">
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ru5-73-f7t">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="76°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPe-PJ-IQ1">
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="EXS-33-pbf">
+                                        <segments>
+                                            <segment title="C°"/>
+                                            <segment title="F°"/>
+                                        </segments>
+                                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <action selector="temperatureUnitChangedWithSender:" destination="zx7-FH-AnA" eventType="valueChanged" id="lS6-du-0Ta"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="vY1-Hc-TGn" firstAttribute="top" secondItem="zx7-FH-AnA" secondAttribute="top" constant="11" id="5rM-JU-Wde"/>
+                                    <constraint firstAttribute="bottom" secondItem="EXS-33-pbf" secondAttribute="bottom" constant="13" id="7Fj-Bd-irm"/>
+                                    <constraint firstItem="Ru5-73-f7t" firstAttribute="centerX" secondItem="cWo-7F-Stf" secondAttribute="centerX" id="HG6-3w-pv2"/>
+                                    <constraint firstAttribute="trailing" secondItem="vY1-Hc-TGn" secondAttribute="trailing" constant="20" id="KB9-CK-24h"/>
+                                    <constraint firstItem="XPe-PJ-IQ1" firstAttribute="centerX" secondItem="vY1-Hc-TGn" secondAttribute="centerX" id="UT5-GA-gc4"/>
+                                    <constraint firstAttribute="height" constant="176" id="XlB-IC-rgW"/>
+                                    <constraint firstItem="vY1-Hc-TGn" firstAttribute="leading" secondItem="cWo-7F-Stf" secondAttribute="trailing" constant="35" id="Y1o-e9-lCH"/>
+                                    <constraint firstItem="EXS-33-pbf" firstAttribute="centerX" secondItem="XPe-PJ-IQ1" secondAttribute="centerX" multiplier="0.98" id="Yiu-Mu-c9g"/>
+                                    <constraint firstItem="cWo-7F-Stf" firstAttribute="top" secondItem="zx7-FH-AnA" secondAttribute="top" constant="11" id="fJZ-Xr-1Yv"/>
+                                    <constraint firstItem="cWo-7F-Stf" firstAttribute="leading" secondItem="zx7-FH-AnA" secondAttribute="leading" constant="20" id="gfz-La-Bvl"/>
+                                    <constraint firstItem="XPe-PJ-IQ1" firstAttribute="top" secondItem="vY1-Hc-TGn" secondAttribute="bottom" constant="11" id="heJ-aV-qx1"/>
+                                    <constraint firstItem="Ru5-73-f7t" firstAttribute="top" secondItem="cWo-7F-Stf" secondAttribute="bottom" constant="3" id="le8-SH-wnD"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="cityName" destination="vY1-Hc-TGn" id="lwK-SO-dJr"/>
+                                    <outlet property="temperatureLabel" destination="XPe-PJ-IQ1" id="fvh-k1-c2q"/>
+                                    <outlet property="unitSegmentedControl" destination="EXS-33-pbf" id="gEQ-On-VKq"/>
+                                    <outlet property="weatherDescription" destination="Ru5-73-f7t" id="CGQ-nC-tW8"/>
+                                    <outlet property="weatherIcon" destination="cWo-7F-Stf" id="qV2-Tr-bFy"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="zx7-FH-AnA" secondAttribute="trailing" constant="5" id="5Ih-Rf-IUp"/>
+                            <constraint firstItem="zx7-FH-AnA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="CuP-C8-3op"/>
+                            <constraint firstAttribute="trailing" secondItem="k4u-Na-qQu" secondAttribute="trailing" id="Tdm-cm-O5w"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zx7-FH-AnA" secondAttribute="bottom" constant="20" id="auU-Bu-bTy"/>
+                            <constraint firstItem="k4u-Na-qQu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tbb-JL-dCL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k4u-Na-qQu" secondAttribute="bottom" id="ujV-p5-oaF"/>
+                            <constraint firstItem="k4u-Na-qQu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zUX-HH-Icy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S42-h5-xWr"/>
+                    <connections>
+                        <outlet property="mapView" destination="k4u-Na-qQu" id="CMt-BR-g9F"/>
+                        <outlet property="weatherInfoView" destination="zx7-FH-AnA" id="JwC-4Q-2YJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="38.23088455772114"/>
+        </scene>
+        <!--OpenWeather-->
+        <scene sceneID="vee-PF-Am8">
+            <objects>
+                <navigationController title="OpenWeather" automaticallyAdjustsScrollViewInsets="NO" id="P97-Qu-Kv1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i13-YN-YrY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3NQ-ma-9te"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuf-wM-vYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="-757"/>
+        </scene>
+    </scenes>
+</document>
