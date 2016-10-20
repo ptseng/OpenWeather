@@ -12,15 +12,3 @@ struct WeatherData {
     var description : String?
     var icon : String?
 }
-
-extension WeatherData {
-    func temperatureInCelsius() -> Double? {
-        guard let temp = temperature else { return nil }
-        return temp - 273.15
-    }
-
-    func temperatureInFahrenheit() -> Double? {
-        guard let temp = temperature else { return nil }
-        return (9/5) * (temp - 273.15) + 32
-    }
-}

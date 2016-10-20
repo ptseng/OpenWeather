@@ -10,8 +10,7 @@ import UIKit
 
 class WeatherInfoView: UIView {
 
-    var temperatureInFahrenheit : Double?
-    var temperatureInCelsius : Double?
+    var temperatureInKelvin : Double?
 
     @IBOutlet weak var cityName : UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
@@ -39,20 +38,19 @@ class WeatherInfoView: UIView {
         }
         cityName.text = weatherData.name
         weatherDescription.text = weatherData.description
-        temperatureInCelsius = weatherData.temperatureInCelsius()
-        temperatureInFahrenheit = weatherData.temperatureInFahrenheit()
+        temperatureInKelvin = weatherData.temperature
         setTemperatureDisplay()
     }
 
     private func setTemperatureDisplay() {
         switch(unitSegmentedControl.selectedSegmentIndex) {
         case 0:
-            if let roundedTemperature = temperatureInCelsius?.rounded() {
-                temperatureLabel.text = String(describing: Int(roundedTemperature)) + "°C"
+            if let temp = temperatureInKelvin {
+                temperatureLabel.text = temp.toTemperatureDisplayString(unit: .Celsius)
             }
         case 1:
-            if let roundedTemperature = temperatureInFahrenheit?.rounded() {
-                temperatureLabel.text = String(describing: Int(roundedTemperature)) + "°F"
+            if let temp = temperatureInKelvin {
+                temperatureLabel.text = temp.toTemperatureDisplayString(unit: .Fahrenheit)
             }
         default:
             break

@@ -17,6 +17,20 @@ OpenWeather is a minimum viable product (MVP) app that displays the weather in y
 5. Allows user to switch temperature units between Celsius and Fahrenheit.
 6. Every time the app enters the background and becomes active again, weather data will be refreshed.
 
+## Automated Testing
+
+### UI Testing
+1. Test for correct navigation bar title.
+2. Test for existence of city name.
+3. Test for existence of weather description.
+4. Test for proper operation of Celsius/Fahrenheit segmented control.
+
+### Unit Testing
+1. Test for generation of weather query url for a given location.
+2. Test for serialization of response JSON from OpenWeatherMap API to a model object.
+3. Test for conversion of Kelvin double value to formatted temperature display string in celsius or fahrenheit.
+4. Test for mapping from OpenWeatherMap API icon name to local icon image name.
+
 ## Tests
 
 ### On First Launch
